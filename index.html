@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Words Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 3rem;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .word-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            word-break: break-word;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .word-count {
+            color: #999;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .total-words {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎲 Random Words Generator</h1>
+        <p>Click the button to generate a random word</p>
+        
+        <div class="word-display" id="wordDisplay">Click to start!</div>
+        
+        <button onclick="generateRandomWord()">Generate Word</button>
+        
+        <div class="word-count">
+            <p>Words generated: <span class="total-words" id="counter">0</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Array of random words
+        const words = [
+            'Adventure', 'Beautiful', 'Brilliant', 'Celebrate', 'Creative',
+            'Curious', 'Determined', 'Dream', 'Energetic', 'Excellent',
+            'Fantastic', 'Fearless', 'Generous', 'Genuine', 'Glorious',
+            'Graceful', 'Grateful', 'Happy', 'Honest', 'Hopeful',
+            'Incredible', 'Intelligent', 'Joyful', 'Kindhearted', 'Lively',
+            'Magnificent', 'Mindful', 'Motivating', 'Noble', 'Optimistic',
+            'Passionate', 'Patient', 'Peaceful', 'Powerful', 'Precious',
+            'Proud', 'Radiant', 'Remarkable', 'Resilient', 'Respectful',
+            'Serene', 'Skillful', 'Spirited', 'Stellar', 'Strong',
+            'Successful', 'Thoughtful', 'Trustworthy', 'Unique', 'Vibrant',
+            'Victorious', 'Visionary', 'Vivacious', 'Warm', 'Wise',
+            'Wonderful', 'Worthy', 'Youthful', 'Zealous', 'Zen'
+        ];
+
+        let counter = 0;
+
+        function generateRandomWord() {
+            // Get a random index
+            const randomIndex = Math.floor(Math.random() * words.length);
+            
+            // Get the word
+            const randomWord = words[randomIndex];
+            
+            // Display the word
+            document.getElementById('wordDisplay').textContent = randomWord;
+            
+            // Increment counter
+            counter++;
+            document.getElementById('counter').textContent = counter;
+        }
+
+        // Optional: Generate a word when page loads
+        generateRandomWord();
+    </script>
+</body>
+</html>
